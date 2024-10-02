@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Consumo API',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
     var json = jsonDecode(response.body);
     var result = json["Search"];
     if (result == null) {
-      throw Exception("Erro ao encontrar os filmes");
+      return;
     }
     for (var movie in result) {
       movies.add(Movie.fromJson(movie));
